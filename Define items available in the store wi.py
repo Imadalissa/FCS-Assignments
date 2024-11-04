@@ -15,22 +15,22 @@ def display_items():
     print("--------------------------\n")
 
 # Function to start a new receipt with input validation for "add another item"
-def start_receipt():
+def start_receipt(): # run time this is O(n*(len(items)+m))
     receipt = []  # List to store items and quantities for this receipt
     display_items()  # Show available items
 
-    while True:
-        barcode = input("Enter item barcode: ")
-        if barcode in items:
+    while True:#o(n)
+        barcode = input("Enter item barcode: ")#o(n)
+        if barcode in items:#o(len of items)
             quantity = int(input(f"Enter quantity for {items[barcode]['name']}: "))
-            receipt.append((items[barcode], quantity))
-        else:
+            receipt.append((items[barcode], quantity))#o(1)
+        else:#o(1)
             print("Invalid barcode!")
 
         # Ask if the user wants to add another item with validation
-        while True:
-            another_item = input("Would you like to add another item? (yes/no): ").lower()
-            if another_item == "yes":
+        while True:#o(m)
+            another_item = input("Would you like to add another item? (yes/no): ").lower()#o(1)//.lower is not 
+            if another_item == "yes":#o(1)
                 break  # Continue to add another item
             elif another_item == "no":
                 print_receipt(receipt)

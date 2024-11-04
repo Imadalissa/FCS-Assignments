@@ -10,5 +10,5 @@ def generate_combinations(characters, n, combination=""):
 
 # Example usage:
 characters = ['a', 'b', 'c']
-n = 2
+n = 5
 generate_combinations(characters, n)
